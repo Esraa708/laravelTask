@@ -5,7 +5,7 @@ as I was requested to handel the backend here are steps to make the app work
 - composer dump-autoload
 - php artisan db:seed --class=class CategorySeeder
 - php artisan serve
-# Steps with screen shots to make it work
+# Steps to make it work
 -  ### Register
     url:-http://localhost:8000/register
     method:-post
