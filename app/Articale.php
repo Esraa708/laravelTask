@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Articale extends Model
 {
     protected $fillable = [
-        'name', 'content'
+        'name', 'content', 'category_id'
     ];
     public function category()
     {

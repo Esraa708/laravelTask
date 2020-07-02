@@ -42,11 +42,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        // $validatedData = $request->validate([
-        //     'name' => 'required|max:255',
-        //     'category_id' => 'required',
-        //     'content' =>'required|string'
-        // ]);
+       $request->validate([
+            'name' => ['required', 'max:255'],
+            'category_id' => ['required'],
+            'content' => ['required'],
+        ]);
+      
         $article = new Articale;
         $article->name = $request->name;
         $article->content = $request->content;
