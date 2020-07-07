@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Articale;
+use App\Category;
 use Facade\FlareClient\Http\Response;
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
@@ -31,7 +33,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.addArticle');
     }
 
     /**
@@ -42,21 +44,20 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-       $request->validate([
+        $request->validate([
             'name' => ['required', 'max:255'],
             'category_id' => ['required'],
             'content' => ['required'],
         ]);
-      
+
         $article = new Articale;
         $article->name = $request->name;
         $article->content = $request->content;
         $article->category_id = $request->category_id;
         $article->user_id = Auth::id();
         $article->save();
-        return response()->json([
-            'msg' => 'article created successfully'
-        ]);
+      
+        return redirect('addArticle');
     }
 
     /**
@@ -81,6 +82,8 @@ class ArticleController extends Controller
      */
     public function edit($id)
     {
+        // dd(Articale::find($id));
+        return view('articles.editArticle',['article' => Articale::find($id)]);
     }
 
     /**
