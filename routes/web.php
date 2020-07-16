@@ -18,13 +18,14 @@ Route::get('/', function () {
 });
 // Route::resource('articles', 'ArticleController');
 Route::get('articles', 'ArticleController@index');
-Route::get('addArticle', 'ArticleController@create');
+Route::get('addArticle', 'ArticleController@create')->middleware('auth');
 Route::post('articles', 'ArticleController@store')->middleware('auth');
 Route::put('articles/{id}', 'ArticleController@update')->middleware('auth');
-Route::get('articles/{id}', 'ArticleController@edit')->middleware('auth');
+Route::get('articles/{id}/edit', 'ArticleController@edit')->middleware('auth');
+Route::get('articles/{id}', 'ArticleController@show')->middleware('auth');
 Route::delete('articles/{id}', 'ArticleController@destroy')->middleware('auth');
 Route::get('categories', 'CategoryController@index');
-Route::get('categories/{id}', 'CategoryController@show');
+Route::get('categories/{id}', 'CategoryController@show')->middleware('auth');
 
 Auth::routes();
 

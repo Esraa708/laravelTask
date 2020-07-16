@@ -27,7 +27,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -51,9 +50,9 @@ class CategoryController extends Controller
     public function show($id)
     {
         $singleCategoryWithArticales
-            = Category::find($id)->articales()->paginate(15);
-        return response()->json([
-            "categoriesWithArticales" => $singleCategoryWithArticales
+            = Category::find($id)->articales()->paginate(3);
+        return view('categories.categoriesArticles', [
+            "categoriesWithArticales" => $singleCategoryWithArticales, 'category' => Category::find($id)
         ]);
     }
 

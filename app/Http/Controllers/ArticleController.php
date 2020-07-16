@@ -69,9 +69,12 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Articale::find($id);
-        return response()->json([
+        return view('articles.show', [
             'article' => $article
         ]);
+        // return response()->json([
+        //     'article' => $article
+        // ]);
     }
 
     /**

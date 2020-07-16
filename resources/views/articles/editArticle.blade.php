@@ -40,7 +40,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary form-control" onclick="clickAdd(e)">Add Article</button>
+                    <button type="submit" class="btn btn-primary form-control" onclick="clickAdd(e)">Edit article </button>
                 </form>
 
             </div>
